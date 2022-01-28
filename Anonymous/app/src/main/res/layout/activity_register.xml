@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="Registration Form"
+        android:layout_marginBottom="50dp"
+        android:textStyle="italic"
+        android:textColor="#25d336"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="30dp"
+        android:id="@+id/RegistrationText">
+
+    </TextView>
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RegistrationText"
+        android:orientation="vertical"
+        android:layout_marginStart="70dp"
+        android:id="@+id/radiobutton">
+        <RadioButton android:id="@+id/StudentRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            android:textStyle="italic"
+            android:textSize="18sp"/>
+        <RadioButton android:id="@+id/FacultyRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Faculty Advisor"
+            android:textStyle="italic"
+            android:textSize="18sp"/>
+        <RadioButton android:id="@+id/NonFacultyRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Non-Faculty Advisor"
+            android:textStyle="italic"
+            android:textSize="18sp"/>
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="textCapWords"
+        android:layout_centerInParent="true"
+        android:id="@+id/GetName"
+        android:hint="Enter your Name"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp">
+
+    </EditText>
+
+    <android.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/GetName"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:background="#25d366"
+        android:text="SUBMIT"
+        android:textSize="15sp"
+        android:id="@+id/Register">
+
+    </android.widget.Button>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Register"
+        android:layout_marginTop="40dp"
+        android:id="@+id/progressbarRegister"
+        android:visibility="invisible">
+
+    </ProgressBar>
+
+</RelativeLayout>
