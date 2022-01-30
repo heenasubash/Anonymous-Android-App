@@ -20,7 +20,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Anonymous"
+                android:text="Student"
+                android:layout_centerHorizontal="true"
                 android:textStyle="italic"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -32,38 +33,31 @@
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/include"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:id="@+id/include"
         android:layout_below="@+id/ToolBar"
-        app:tabTextColor="#77a3a7"
-        app:tabSelectedTextColor="@color/white"
-        app:tabIndicatorColor="@color/white"
+        android:layout_marginTop="0dp"
         android:backgroundTint="#FFB6C1"
+        app:tabIndicatorColor="@color/white"
         app:tabIndicatorHeight="3dp"
-        android:layout_marginTop="0dp">
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="#77a3a7">
+
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/Faculty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Student"
-            android:id="@+id/student">
+            android:text="Faculty Advisor">
 
         </com.google.android.material.tabs.TabItem>
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/NonFaculty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Faculty Advisor"
-            android:id="@+id/Faculty">
-
-        </com.google.android.material.tabs.TabItem>
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Non-Faculty Advisor"
-            android:id="@+id/NonFaculty">
+            android:text="Non-Faculty Advisor">
 
         </com.google.android.material.tabs.TabItem>
 

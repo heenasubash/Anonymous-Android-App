@@ -1,5 +1,6 @@
 package com.example.anonymous;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +25,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Register extends AppCompatActivity {
@@ -33,6 +36,9 @@ public class Register extends AppCompatActivity {
     private RadioGroup mradiobutton;
     private String userType;
     private String unique = UUID.randomUUID().toString();
+    private RadioButton mStudentRadio;
+    private RadioButton mFacultyRadio;
+    private RadioButton mNonFacultyRadio;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseStorage firebaseStorage;
@@ -55,42 +61,43 @@ public class Register extends AppCompatActivity {
         mRegister = findViewById(R.id.Register);
         mprogressbarRegister = findViewById(R.id.progressbarRegister);
         mradiobutton = findViewById(R.id.radiobutton);
+        mStudentRadio = findViewById(R.id.StudentRadio);
+        mFacultyRadio = findViewById(R.id.FacultyRadio);
+        mNonFacultyRadio = findViewById(R.id.NonFacultyRadio);
 
-        mradiobutton.setOnClickListener(new View.OnClickListener() {
+        mStudentRadio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                userType = "Student";
+                mGetName.setText(unique);
+            }
+        });
 
-                boolean checked = ((RadioButton) v).isChecked();
-
-
-                switch(v.getId()) {
-                    case R.id.StudentRadio:
-                        if (checked) {
-                            userType = "Student";
-                            mGetName.setText(unique);
-                            break;
-                        }
-                    case R.id.FacultyRadio:
-                        if (checked)
-                            userType = "Faculty";
-                            break;
-                    case R.id.NonFacultyRadio:
-                        if (checked)
-                            userType = "NonFaculty";
-                            break;
-                }
+        mFacultyRadio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userType = "Faculty";
+                //mGetName.setText("");
 
             }
         });
+
+        mNonFacultyRadio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userType = "NonFaculty";
+                //mGetName.setText("");
+
+            }
+        });
+
+
 
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (userType == "Student"){
-                    mGetName.setText(unique);
-                }
-                else{
+                if (userType.equals("Faculty") || userType.equals("NonFaculty" )|| userType.equals("Student")){
                     name = mGetName.getText().toString();
                 }
                 if(name.isEmpty())
@@ -122,7 +129,7 @@ public class Register extends AppCompatActivity {
         name=mGetName.getText().toString().trim();
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference(firebaseAuth.getUid());
-        if (userType == "Student"){
+        if (userType.equals("Student")){
             userprofile muserprofile = new userprofile(unique,firebaseAuth.getUid());
             databaseReference.setValue(muserprofile);
         }
@@ -130,7 +137,7 @@ public class Register extends AppCompatActivity {
             userprofile muserprofile = new userprofile(name,firebaseAuth.getUid());
             databaseReference.setValue(muserprofile);
         }
-        Toast.makeText(getApplicationContext(),"User Profile Added Sucessfully",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"User Profile Added Successfully",Toast.LENGTH_SHORT).show();
 
     }
 
@@ -139,11 +146,12 @@ public class Register extends AppCompatActivity {
 
         DocumentReference documentReference = firebaseFirestore.collection("Users").document(firebaseAuth.getUid());
         Map<String, Object> userdata = new HashMap<>();
-        if (userType == "Student") {
+        if (userType.equals("Student")) {
             userdata.put("name", unique);
         } else {
             userdata.put("name", name);
         }
+        userdata.put("userType",userType);
         userdata.put("uid", firebaseAuth.getUid());
         userdata.put("status", "Online");
 
@@ -154,6 +162,8 @@ public class Register extends AppCompatActivity {
 
             }
         });
+
+
 
     }
 }

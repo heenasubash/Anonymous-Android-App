@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Anonymous">
         <activity
+            android:name=".SpecificChat"
+            android:exported="false" />
+        <activity
+            android:name=".specificchat"
+            android:exported="false" />
+        <activity
             android:name=".FacultyChatActivity"
             android:exported="false" />
         <activity
