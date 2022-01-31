@@ -121,14 +121,13 @@ public class Register extends AppCompatActivity {
         });
 
     }
-    private void sendDataForNewUser() {
+    private void sendDataForNewUser(){
         sendDataToRealTimeDatabase();
     }
 
     private void sendDataToRealTimeDatabase() {
-        name=mGetName.getText().toString().trim();
-        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference=firebaseDatabase.getReference(firebaseAuth.getUid());
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://anonymous-9454d-default-rtdb.asia-southeast1.firebasedatabase.app");
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
         if (userType.equals("Student")){
             userprofile muserprofile = new userprofile(unique,firebaseAuth.getUid());
             databaseReference.setValue(muserprofile);
@@ -140,6 +139,9 @@ public class Register extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),"User Profile Added Successfully",Toast.LENGTH_SHORT).show();
 
     }
+
+        
+
 
     private void sendDataTocloudFirestore() {
 
