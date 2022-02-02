@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Anonymous">
         <activity
+            android:name=".SpecialAccessGiven"
+            android:exported="false" />
+        <activity
+            android:name=".AccessCodeActivity"
+            android:exported="false" />
+        <activity
             android:name=".SpecificChat"
             android:exported="false" />
         <activity

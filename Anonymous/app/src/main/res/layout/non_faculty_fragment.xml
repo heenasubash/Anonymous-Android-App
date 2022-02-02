@@ -4,6 +4,39 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click  this button to check if you have faculty access"
+        android:paddingTop="70dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:textSize="25sp"
+        android:id="@+id/accessText"
+        android:textStyle="italic"
+        >
+
+    </TextView>
+
+
+    <android.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/accessText"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:background="#25d366"
+        android:text="CHECK"
+        android:textSize="15sp"
+        android:id="@+id/accessButton">
+
+    </android.widget.Button>
+
+
+
 
 
 </RelativeLayout>

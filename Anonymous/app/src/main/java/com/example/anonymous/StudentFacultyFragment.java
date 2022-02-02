@@ -34,8 +34,6 @@ public class StudentFacultyFragment extends Fragment {
     RecyclerView mrecyclerview;
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,8 +44,7 @@ public class StudentFacultyFragment extends Fragment {
         firebaseFirestore= FirebaseFirestore.getInstance();
 
 
-        // Query query=firebaseFirestore.collection("Users");
-        Query query=firebaseFirestore.collection("Users");
+        Query query=firebaseFirestore.collection("Users").whereEqualTo("userType","Faculty");
         FirestoreRecyclerOptions<firebasemodel> allusername=new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
 
         chatAdapter=new FirestoreRecyclerAdapter<firebasemodel, NoteViewHolder>(allusername) {

@@ -22,6 +22,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,6 +52,8 @@ public class SpecificChat extends AppCompatActivity {
     MessageAdapter messagesAdapter;
     ArrayList<messages> messagesArrayList;
     RecyclerView mmessagerecyclerview;
+    FirebaseFirestore firebaseFirestore;
+    ImageButton maccessButtonnew;
 
 
     @Override
@@ -62,8 +67,10 @@ public class SpecificChat extends AppCompatActivity {
         mtoolbar2 = findViewById(R.id.toolbarofspecificchat);
         mnameofspecificuser = findViewById(R.id.Nameofspecificuser);
         mbackbuttonofspecificchat=findViewById(R.id.backbuttonofspecificchat);
+        maccessButtonnew = findViewById(R.id.accessButtonnew);
         intent = getIntent();
         setSupportActionBar(mtoolbar2);
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance("https://anonymous-9454d-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -85,6 +92,33 @@ public class SpecificChat extends AppCompatActivity {
 
         senderRoom = msenderuid+mreceiveruid;
         receiverRoom = mreceiveruid+msenderuid;
+        CollectionReference usersRef = firebaseFirestore.collection("Users");
+
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        usersRef.document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        String type = document.getString("userType");
+                        if(type.equals("Faculty")) {
+                            maccessButtonnew.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+            }
+        });
+
+
+        maccessButtonnew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SpecificChat.this,AccessCodeActivity.class);
+                intent.putExtra("studentid",mreceiveruid);
+                startActivity(intent);
+            }
+        });
 
         DatabaseReference databaseReference=firebaseDatabase.getReference().child("chats").child(senderRoom).child("messages");
         messagesAdapter=new MessageAdapter(SpecificChat.this,messagesArrayList);

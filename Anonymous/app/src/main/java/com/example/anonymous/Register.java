@@ -111,9 +111,21 @@ public class Register extends AppCompatActivity {
                     sendDataForNewUser();
                     sendDataTocloudFirestore();
                     mprogressbarRegister.setVisibility(View.INVISIBLE);
-                    Intent intent=new Intent(Register.this,StudentChatActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if (userType.equals("Student")) {
+                        Intent intent = new Intent(Register.this, StudentChatActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    if(userType.equals("Faculty")){
+                        Intent intent = new Intent(Register.this, FacultyChatActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    if(userType.equals("NonFaculty")){
+                        Intent intent = new Intent(Register.this, NonFacultyChat.class);
+                        startActivity(intent);
+                        finish();
+                    }
 
 
                 }
@@ -121,13 +133,13 @@ public class Register extends AppCompatActivity {
         });
 
     }
-    private void sendDataForNewUser(){
+   private void sendDataForNewUser(){
         sendDataToRealTimeDatabase();
     }
 
     private void sendDataToRealTimeDatabase() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://anonymous-9454d-default-rtdb.asia-southeast1.firebasedatabase.app");
-        DatabaseReference databaseReference = firebaseDatabase.getReference();
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
         if (userType.equals("Student")){
             userprofile muserprofile = new userprofile(unique,firebaseAuth.getUid());
             databaseReference.setValue(muserprofile);

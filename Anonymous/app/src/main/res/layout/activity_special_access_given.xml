@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FacultyChatActivity">
+    tools:context=".SpecialAccessGiven">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="0dp"
         android:background="#FFB6C1"
-        android:id="@+id/ToolBarofFaculty">
+        android:id="@+id/ToolBarofSpecial">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,14 +20,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Faculty"
+                android:text="Non Faculty"
                 android:layout_centerHorizontal="true"
                 android:textStyle="italic"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:id="@+id/AppText">
+                android:id="@+id/SpecialText">
 
             </TextView>
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/backButtonspecial"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="5dp">
+
+            </ImageButton>
 
 
         </RelativeLayout>

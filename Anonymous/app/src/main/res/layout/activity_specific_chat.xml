@@ -31,11 +31,25 @@
 
             </ImageButton>
 
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/accessButtonnew"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="320dp"
+                android:visibility="invisible">
+
+            </ImageButton>
+
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name of User"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:id="@+id/Nameofspecificuser"
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@+id/backbuttonofspecificchat"

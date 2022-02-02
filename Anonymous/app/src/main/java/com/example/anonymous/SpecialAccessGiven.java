@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -28,34 +29,41 @@ import com.google.firebase.firestore.Query;
 import java.util.ArrayList;
 
 
-public class FacultyChatActivity extends AppCompatActivity {
+public class SpecialAccessGiven extends AppCompatActivity {
 
     private FirebaseFirestore firebaseFirestore;
     LinearLayoutManager linearLayoutManager;
     FirebaseAuth firebaseAuth;
+    ImageButton mbackbutton;
 
-    FirestoreRecyclerAdapter<firebasemodel, FacultyChatActivity.NoteViewHolder> chatAdapter;
+    FirestoreRecyclerAdapter<firebasemodel, SpecialAccessGiven.NoteViewHolder> chatAdapter;
 
     RecyclerView mrecyclerview;
-    ArrayList<String> senders = new ArrayList<String>();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faculty_chat);
+        setContentView(R.layout.activity_special_access_given);
 
         mrecyclerview=findViewById(R.id.recyclerview);
+        mbackbutton = findViewById(R.id.backButtonspecial);
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseFirestore= FirebaseFirestore.getInstance();
 
-        Query query=firebaseFirestore.collection("Users").whereEqualTo("userType","Student");
+        mbackbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+        Query query=firebaseFirestore.collection("Users").whereEqualTo("userType","NonFaculty");
         FirestoreRecyclerOptions<firebasemodel> allusername=new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
 
-        chatAdapter=new FirestoreRecyclerAdapter<firebasemodel, FacultyChatActivity.NoteViewHolder>(allusername) {
+        chatAdapter=new FirestoreRecyclerAdapter<firebasemodel, SpecialAccessGiven.NoteViewHolder>(allusername) {
             @Override
-            protected void onBindViewHolder(@NonNull FacultyChatActivity.NoteViewHolder noteViewHolder, int i, @NonNull firebasemodel firebasemodel) {
+            protected void onBindViewHolder(@NonNull SpecialAccessGiven.NoteViewHolder noteViewHolder, int i, @NonNull firebasemodel firebasemodel) {
 
                 noteViewHolder.particularusername.setText(firebasemodel.getName());
                 if(firebasemodel.getStatus().equals("Online"))
@@ -84,10 +92,10 @@ public class FacultyChatActivity extends AppCompatActivity {
 
             @NonNull
             @Override
-            public FacultyChatActivity.NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public SpecialAccessGiven.NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
                 View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.chatviewlayout,parent,false);
-                return new FacultyChatActivity.NoteViewHolder(view);
+                return new SpecialAccessGiven.NoteViewHolder(view);
             }
         };
 
@@ -113,9 +121,6 @@ public class FacultyChatActivity extends AppCompatActivity {
             particularusername=itemView.findViewById(R.id.nameofuser);
             statusofuser=itemView.findViewById(R.id.statusofuser);
 
-
-
-
         }
     }
 
@@ -134,5 +139,3 @@ public class FacultyChatActivity extends AppCompatActivity {
         }
     }
 }
-
-
