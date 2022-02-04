@@ -43,7 +43,7 @@ import java.util.Date;
 public class SpecificChat extends AppCompatActivity {
 
     EditText msendmessage;
-    ImageButton msendbuton;
+    ImageButton msendbuton,mcategory;
     CardView msendmessagecardview;
     androidx.appcompat.widget.Toolbar mtoolbar2;
     TextView mnameofspecificuser;
@@ -80,6 +80,7 @@ public class SpecificChat extends AppCompatActivity {
         maccessButtonnew = findViewById(R.id.accessButtonnew);
         mvideocall = findViewById(R.id.videocall);
         mschedule = findViewById(R.id.schedule);
+        mcategory = findViewById(R.id.StudentCategory);
         intent = getIntent();
         setSupportActionBar(mtoolbar2);
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -122,6 +123,7 @@ public class SpecificChat extends AppCompatActivity {
                         boolean access = document.getBoolean("Access");
                         if(type.equals("Faculty")) {
                             maccessButtonnew.setVisibility(View.VISIBLE);
+                            mcategory.setVisibility(View.VISIBLE);
                         }
                         if(type.equals("NonFaculty")){
                             mvideocall.setVisibility(View.VISIBLE);
@@ -129,6 +131,9 @@ public class SpecificChat extends AppCompatActivity {
                         }
                         if(access){
                             mvideocall.setVisibility(View.VISIBLE);
+                        }
+                        else{
+                            mvideocall.setVisibility(View.INVISIBLE);
                         }
                     }
                 }
@@ -146,6 +151,17 @@ public class SpecificChat extends AppCompatActivity {
                 }
             }
         });
+
+        mcategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SpecificChat.this,StudentCategory.class);
+                intent.putExtra("studentid",mreceiveruid);
+                startActivity(intent);
+            }
+        });
+
+
 
         mschedule.setOnClickListener(new View.OnClickListener() {
             @Override

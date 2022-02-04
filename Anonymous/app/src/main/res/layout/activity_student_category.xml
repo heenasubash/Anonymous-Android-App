@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentCategory">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/backbuttonCategory"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_centerVertical="true">
+
+        </ImageButton>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/rel">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:id="@+id/anxious1">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/anxious1"
+            android:id="@+id/grief1">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/grief1"
+            android:id="@+id/trauma1">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/trauma1"
+            android:id="@+id/report1">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/report1"
+            android:id="@+id/challenge1">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/challenge1"
+            android:id="@+id/interfere1">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/interfere1"
+            android:id="@+id/depress1">
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

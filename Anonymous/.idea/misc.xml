@@ -7,6 +7,7 @@
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/drawable/sender_chat_drawable.xml" value="0.2203125" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_access_code.xml" value="0.1634963768115942" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_alarm.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_category.xml" value="0.22" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_faculty_chat.xml" value="0.2" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_non_faculty_chat.xml" value="0.18614130434782608" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_specific_chat.xml" value="0.22" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_specificchat.xml" value="0.18931159420289856" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_student_category.xml" value="0.2" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/activity_student_chat.xml" value="0.22" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/chatviewlayout.xml" value="0.17" />
         <entry key="..\:/Users/heena/AndroidStudioProjects/Anonymous/app/src/main/res/layout/faculty_fragment.xml" value="0.1875" />

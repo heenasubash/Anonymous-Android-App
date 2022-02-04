@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CategoryActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/rel">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I feel anxious or overwhelmed"
+            android:id="@+id/anxious">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I am grieving"
+            android:layout_below="@+id/anxious"
+            android:id="@+id/grief">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I have experienced trauma"
+            android:layout_below="@+id/grief"
+            android:id="@+id/trauma">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I want to report an incident"
+            android:layout_below="@+id/trauma"
+            android:id="@+id/report">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I need to talk through a specific challenge"
+            android:layout_below="@+id/report"
+            android:id="@+id/challenge">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My troubles are interfering with my academic perfomance"
+            android:layout_below="@+id/challenge"
+            android:id="@+id/interfere">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I feel depressed"
+            android:layout_below="@+id/interfere"
+            android:id="@+id/depress">
+
+        </CheckBox>
+    </RelativeLayout>
+
+    <android.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel"
+        android:id="@+id/catButton"
+        android:layout_centerHorizontal="true"
+        android:text="SUBMIT">
+
+    </android.widget.Button>
+
+</RelativeLayout>

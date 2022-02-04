@@ -3,6 +3,7 @@ package com.example.anonymous;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -113,7 +114,7 @@ public class Register extends AppCompatActivity {
                     sendDataTocloudFirestore();
                     mprogressbarRegister.setVisibility(View.INVISIBLE);
                     if (userType.equals("Student")) {
-                        Intent intent = new Intent(Register.this, StudentChatActivity.class);
+                        Intent intent = new Intent(Register.this, CategoryActivity.class);
                         startActivity(intent);
                         finish();
                     }
@@ -170,7 +171,7 @@ public class Register extends AppCompatActivity {
         userdata.put("uid", firebaseAuth.getUid());
         userdata.put("status", "Online");
         userdata.put("PhoneNumber", PhoneNum);
-        userdata.put("Access",null);
+        userdata.put("Access",false);
 
         documentReference.set(userdata).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
