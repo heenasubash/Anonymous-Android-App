@@ -28,6 +28,8 @@ public class otpAuth extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     ProgressBar mprogressbarOTP;
+    String PhoneNumber;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class otpAuth extends AppCompatActivity {
         mgetOTP = findViewById(R.id.getOTP);
         mVerifyOTP = findViewById(R.id.VerifyOTP);
         mprogressbarOTP = findViewById(R.id.progressbarOTP);
+        PhoneNumber = getIntent().getStringExtra("phonenumber");
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -76,6 +79,7 @@ public class otpAuth extends AppCompatActivity {
                     mprogressbarOTP.setVisibility(View.INVISIBLE);
                     Toast.makeText(getApplicationContext(),"OTP Verified successfully", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(otpAuth.this, Register.class);
+                    intent.putExtra("Phonenum",PhoneNumber);
                     startActivity(intent);
                     finish();
                 }

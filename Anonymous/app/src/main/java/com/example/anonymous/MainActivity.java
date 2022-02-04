@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent( MainActivity.this, otpAuth.class);
                 intent.putExtra("otp",codesent);
+                intent.putExtra("phonenumber",phonenumber);
                 startActivity(intent);
 
             }
@@ -140,23 +141,24 @@ public class MainActivity extends AppCompatActivity {
                         if (document.exists()) {
                             String type = document.getString("userType");
                             if(type.equals("Student")) {
-                                startActivity(new Intent(MainActivity.this, StudentChatActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                                Intent intent = new Intent(MainActivity.this,StudentChatActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+
                             } else if (type.equals("Faculty")) {
-                                startActivity(new Intent(MainActivity.this, FacultyChatActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                                Intent intent = new Intent(MainActivity.this,FacultyChatActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
                             }
                             else{
-                                startActivity(new Intent(MainActivity.this, NonFacultyChat.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                                Intent intent = new Intent(MainActivity.this,NonFacultyChat.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
                             }
                         }
                     }
                 }
             });
-
-
-
-                /*Intent intent = new Intent(MainActivity.this, StudentChatActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);*/
 
         }
     }

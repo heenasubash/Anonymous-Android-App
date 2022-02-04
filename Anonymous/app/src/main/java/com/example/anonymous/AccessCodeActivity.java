@@ -39,11 +39,9 @@ public class AccessCodeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DocumentReference documentReference = firebaseFirestore.collection("Non Faculty Access").document(studentid);
-                Map<String, Object> accessData = new HashMap<>();
-                accessData.put("Access",true);
+                DocumentReference documentReference = firebaseFirestore.collection("Users").document(studentid);
 
-                documentReference.set(accessData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                documentReference.update("Access",true).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(getApplicationContext(), "This Student now has Non Faculty Access", Toast.LENGTH_SHORT).show();
@@ -59,14 +57,12 @@ public class AccessCodeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DocumentReference documentReference = firebaseFirestore.collection("Non Faculty Access").document(studentid);
-                Map<String, Object> accessData = new HashMap<>();
-                accessData.put("Access",false);
+                DocumentReference documentReference = firebaseFirestore.collection("Users").document(studentid);
 
-                documentReference.set(accessData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                documentReference.update("Access",false).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(getApplicationContext(), "This Student now does not have Non Faculty Access", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "This Student now has Non Faculty Access", Toast.LENGTH_SHORT).show();
                         finish();
 
                     }

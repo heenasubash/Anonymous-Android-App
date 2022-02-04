@@ -1,8 +1,11 @@
 package com.example.anonymous;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +22,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 
 import java.util.ArrayList;
@@ -37,6 +46,7 @@ public class FacultyChatActivity extends AppCompatActivity {
     FirestoreRecyclerAdapter<firebasemodel, FacultyChatActivity.NoteViewHolder> chatAdapter;
 
     RecyclerView mrecyclerview;
+    String senderid;
     ArrayList<String> senders = new ArrayList<String>();
 
 
@@ -50,7 +60,27 @@ public class FacultyChatActivity extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseFirestore= FirebaseFirestore.getInstance();
 
-        Query query=firebaseFirestore.collection("Users").whereEqualTo("userType","Student");
+        /*String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        firebaseFirestore.collection("FacultyInbox")
+        .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        if (document.exists()) {
+                            String receiver = document.getString("receiveruid");
+                            if (receiver.equals(uid)) {
+                                senderid = document.getString("senderuid");
+                                senders.add(senderid);
+                            }
+                        }
+                    }
+                }
+            }
+        });*/
+
+        Query query =firebaseFirestore.collection("Users").whereEqualTo("userType","Student");
         FirestoreRecyclerOptions<firebasemodel> allusername=new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
 
         chatAdapter=new FirestoreRecyclerAdapter<firebasemodel, FacultyChatActivity.NoteViewHolder>(allusername) {

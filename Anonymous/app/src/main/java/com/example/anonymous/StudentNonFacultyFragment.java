@@ -31,7 +31,7 @@ public class StudentNonFacultyFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.non_faculty_fragment, null);
         firebaseFirestore = FirebaseFirestore.getInstance();
-        CollectionReference usersRef = firebaseFirestore.collection("Non Faculty Access");
+        CollectionReference usersRef = firebaseFirestore.collection("Users");
         maccessButton = v.findViewById(R.id.accessButton);
 
         maccessButton.setOnClickListener(new View.OnClickListener() {

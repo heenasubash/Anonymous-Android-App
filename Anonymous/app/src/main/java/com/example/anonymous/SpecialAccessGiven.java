@@ -3,6 +3,7 @@ package com.example.anonymous;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +21,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class SpecialAccessGiven extends AppCompatActivity {
@@ -34,7 +40,10 @@ public class SpecialAccessGiven extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     LinearLayoutManager linearLayoutManager;
     FirebaseAuth firebaseAuth;
-    ImageButton mbackbutton;
+    ImageButton mbackbutton,mschedule;
+    int hours, min, day, month, year,hours1;
+    int min1;
+    String mTitle, mDescr;
 
     FirestoreRecyclerAdapter<firebasemodel, SpecialAccessGiven.NoteViewHolder> chatAdapter;
 
@@ -47,8 +56,10 @@ public class SpecialAccessGiven extends AppCompatActivity {
 
         mrecyclerview=findViewById(R.id.recyclerview);
         mbackbutton = findViewById(R.id.backButtonspecial);
+        mschedule = findViewById(R.id.scheduleStudent);
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseFirestore= FirebaseFirestore.getInstance();
+        CollectionReference usersRef = firebaseFirestore.collection("Schedule");
 
         mbackbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +67,56 @@ public class SpecialAccessGiven extends AppCompatActivity {
                 finish();
             }
         });
+
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        usersRef.document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        day = document.getLong("Day").intValue();
+                        month = document.getLong("Month").intValue();
+                        year = document.getLong("Year").intValue();
+                        hours = document.getLong("HoursStart").intValue();
+                        min = document.getLong("MinutesStart").intValue();
+                        hours1 = document.getLong("HoursEnd").intValue();
+                        min1 = document.getLong("MinutesEnd").intValue();
+                        mTitle = document.getString("Title");
+                        mDescr = document.getString("Description");
+
+                    }
+                }
+            }
+        });
+
+        mschedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar beginTime = Calendar.getInstance();
+                beginTime.set(year, month, day, hours, min);
+
+                Calendar endTime = Calendar.getInstance();
+                endTime.set(year, month, day, hours1, min1);
+
+                Intent intent = new Intent(Intent.ACTION_INSERT)
+                        .setData(CalendarContract.Events.CONTENT_URI)
+                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+                                beginTime.getTimeInMillis())
+                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+                                endTime.getTimeInMillis())
+                        .putExtra(CalendarContract.Events.TITLE, mTitle)
+                        .putExtra(CalendarContract.Events.DESCRIPTION, mDescr)
+                        //.putExtra(CalendarContract.Events.EVENT_LOCATION, "The gym")
+                        .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+                //.putExtra(Intent.EXTRA_EMAIL, "rowan@example.com,trevor@example.com");
+
+                startActivity(intent);
+            }
+        });
+
+
+
 
 
         Query query=firebaseFirestore.collection("Users").whereEqualTo("userType","NonFaculty");

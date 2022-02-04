@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AlarmActivity">
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:layout_marginRight="130dp"
+        android:id="@+id/timepicker">
+
+    </TimePicker>
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:layout_marginLeft="180dp"
+        android:id="@+id/timepicker1">
+
+    </TimePicker>
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="calendar"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:layout_marginTop="200dp"
+        android:id="@+id/datepicker">
+
+    </DatePicker>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
+        android:hint="enter title"
+        android:id="@+id/titleedit"
+        android:layout_marginLeft="20dp"
+        android:inputType="textCapWords">
+
+    </EditText>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
+        android:hint="enter title"
+        android:id="@+id/desText"
+        android:layout_marginLeft="120dp"
+        android:inputType="textCapWords">
+
+    </EditText>
+    <android.widget.Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:id="@+id/setSchedule"
+        android:layout_marginTop="600dp">
+
+    </android.widget.Button>
+
+
+
+
+</RelativeLayout>
+
+
+
+

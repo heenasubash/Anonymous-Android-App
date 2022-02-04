@@ -39,6 +39,17 @@
 
             </ImageButton>
 
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/scheduleStudent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="330dp">
+
+            </ImageButton>
+
 
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>

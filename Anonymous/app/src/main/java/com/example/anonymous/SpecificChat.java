@@ -3,11 +3,20 @@ package com.example.anonymous;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.CalendarContract;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -53,7 +62,8 @@ public class SpecificChat extends AppCompatActivity {
     ArrayList<messages> messagesArrayList;
     RecyclerView mmessagerecyclerview;
     FirebaseFirestore firebaseFirestore;
-    ImageButton maccessButtonnew;
+    ImageButton maccessButtonnew,mvideocall,mschedule;
+    String PhoneNumber1;
 
 
     @Override
@@ -68,9 +78,16 @@ public class SpecificChat extends AppCompatActivity {
         mnameofspecificuser = findViewById(R.id.Nameofspecificuser);
         mbackbuttonofspecificchat=findViewById(R.id.backbuttonofspecificchat);
         maccessButtonnew = findViewById(R.id.accessButtonnew);
+        mvideocall = findViewById(R.id.videocall);
+        mschedule = findViewById(R.id.schedule);
         intent = getIntent();
         setSupportActionBar(mtoolbar2);
         firebaseFirestore = FirebaseFirestore.getInstance();
+        int permissionsCode = 42;
+        String[] permissions = {Manifest.permission.READ_CONTACTS, Manifest.permission.CALL_PHONE};
+        ActivityCompat.requestPermissions(this, permissions, permissionsCode);
+
+        //context = context.getApplicationContext();
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance("https://anonymous-9454d-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -102,20 +119,59 @@ public class SpecificChat extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         String type = document.getString("userType");
+                        boolean access = document.getBoolean("Access");
                         if(type.equals("Faculty")) {
                             maccessButtonnew.setVisibility(View.VISIBLE);
+                        }
+                        if(type.equals("NonFaculty")){
+                            mvideocall.setVisibility(View.VISIBLE);
+                            mschedule.setVisibility(View.VISIBLE);
+                        }
+                        if(access){
+                            mvideocall.setVisibility(View.VISIBLE);
                         }
                     }
                 }
             }
         });
 
+        usersRef.document(mreceiveruid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        PhoneNumber1= document.getString("PhoneNumber");
+                    }
+                }
+            }
+        });
+
+        mschedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SpecificChat.this,AlarmActivity.class);
+                intent.putExtra("studentid",mreceiveruid);
+                startActivity(intent);
+            }
+        });
+
+        mvideocall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setPackage("com.google.android.apps.tachyon");
+                intent.setAction("com.google.android.apps.tachyon.action.CALL");
+                intent.setData(Uri.parse("tel:"+PhoneNumber1));
+                startActivity(intent);
+            }
+        });
 
         maccessButtonnew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SpecificChat.this,AccessCodeActivity.class);
-                intent.putExtra("studentid",mreceiveruid);
+                intent.putExtra("studentid11",mreceiveruid);
                 startActivity(intent);
             }
         });

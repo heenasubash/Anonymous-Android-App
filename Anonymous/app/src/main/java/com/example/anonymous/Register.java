@@ -46,6 +46,7 @@ public class Register extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
 
     ProgressBar mprogressbarRegister;
+    String PhoneNum = getIntent().getStringExtra("Phonenum");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +78,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userType = "Faculty";
-                //mGetName.setText("");
+                mGetName.setText("");
 
             }
         });
@@ -86,7 +87,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userType = "NonFaculty";
-                //mGetName.setText("");
+                mGetName.setText("");
 
             }
         });
@@ -168,6 +169,8 @@ public class Register extends AppCompatActivity {
         userdata.put("userType",userType);
         userdata.put("uid", firebaseAuth.getUid());
         userdata.put("status", "Online");
+        userdata.put("PhoneNumber", PhoneNum);
+        userdata.put("Access",null);
 
         documentReference.set(userdata).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
