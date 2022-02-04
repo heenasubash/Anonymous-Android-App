@@ -79,7 +79,7 @@ public class otpAuth extends AppCompatActivity {
                     mprogressbarOTP.setVisibility(View.INVISIBLE);
                     Toast.makeText(getApplicationContext(),"OTP Verified successfully", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(otpAuth.this, Register.class);
-                    intent.putExtra("Phonenum",PhoneNumber);
+                    intent.putExtra("Phonenum",PhoneNumber).toString();
                     startActivity(intent);
                     finish();
                 }

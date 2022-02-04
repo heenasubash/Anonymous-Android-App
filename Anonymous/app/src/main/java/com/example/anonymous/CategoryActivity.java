@@ -96,9 +96,16 @@ public class CategoryActivity extends AppCompatActivity {
                    isDepress = true;
             }
         });
-        sendDataToCloudFirestore();
-        Intent intent = new Intent(CategoryActivity.this,StudentChatActivity.class);
-        startActivity(intent);
+
+        catButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendDataToCloudFirestore();
+                Intent intent = new Intent(CategoryActivity.this,StudentChatActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void sendDataToCloudFirestore() {

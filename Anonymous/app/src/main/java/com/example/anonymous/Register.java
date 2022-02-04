@@ -47,7 +47,7 @@ public class Register extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
 
     ProgressBar mprogressbarRegister;
-    String PhoneNum = getIntent().getStringExtra("Phonenum");
+    String PhoneNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,7 @@ public class Register extends AppCompatActivity {
         mStudentRadio = findViewById(R.id.StudentRadio);
         mFacultyRadio = findViewById(R.id.FacultyRadio);
         mNonFacultyRadio = findViewById(R.id.NonFacultyRadio);
+        PhoneNum = getIntent().getStringExtra("Phonenum").toString();
 
         mStudentRadio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,8 +115,8 @@ public class Register extends AppCompatActivity {
                     sendDataTocloudFirestore();
                     mprogressbarRegister.setVisibility(View.INVISIBLE);
                     if (userType.equals("Student")) {
-                        Intent intent = new Intent(Register.this, CategoryActivity.class);
-                        startActivity(intent);
+                        Intent newint = new Intent(Register.this, CategoryActivity.class);
+                        startActivity(newint);
                         finish();
                     }
                     if(userType.equals("Faculty")){

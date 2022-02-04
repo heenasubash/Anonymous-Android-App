@@ -77,29 +77,29 @@ public class StudentCategory extends AppCompatActivity {
         else
             anxious.setText("I feel anxious or overwhelmed" + "  NO");
         if(isGrief)
-            anxious.setText("I am grieving" + "  YES");
+            grief.setText("I am grieving" + "  YES");
         else
-            anxious.setText("I am grieving" + "  NO");
+            grief.setText("I am grieving" + "  NO");
         if(isTrauma)
-            anxious.setText("I have experienced trauma" + "  YES");
+            trauma.setText("I have experienced trauma" + "  YES");
         else
-            anxious.setText("I have experienced trauma" + "  NO");
+            trauma.setText("I have experienced trauma" + "  NO");
         if(isReport)
-            anxious.setText("I want to report an incident" + "  YES");
+            report.setText("I want to report an incident" + "  YES");
         else
-            anxious.setText("I want to report an incident" + "  NO");
+            report.setText("I want to report an incident" + "  NO");
         if(isChallenge)
-            anxious.setText("I need to talk through a specific challenge" + "  YES");
+            challenge.setText("I need to talk through a specific challenge" + "  YES");
         else
-            anxious.setText("I need to talk through a specific challenge" + "  NO");
+            challenge.setText("I need to talk through a specific challenge" + "  NO");
         if(isInterfere)
-            anxious.setText("My troubles are interfering with my academic perfomance"+ "  YES");
+            interfere.setText("My troubles are interfering with my academic perfomance"+ "  YES");
         else
-            anxious.setText("My troubles are interfering with my academic perfomance" + "  NO");
+            interfere.setText("My troubles are interfering with my academic perfomance" + "  NO");
         if(isDepress)
-            anxious.setText("I feel depressed" + "  YES");
+            depress.setText("I feel depressed" + "  YES");
         else
-            anxious.setText("I feel depressed" + "  NO");
+            depress.setText("I feel depressed" + "  NO");
 
 
     }
