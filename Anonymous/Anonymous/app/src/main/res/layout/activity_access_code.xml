@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".AccessCodeActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="-50dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/gradient_blue"
+        android:id="@+id/design">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/user_send"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/design"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/send_usericon">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/ques"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/user_send"
+        android:paddingLeft="40dp"
+        android:paddingTop="30dp"
+        android:paddingRight="70dp"
+        android:text="Wish to allow Non-Faculty Advisor access to this Student? Click the Button below!"
+        android:textColor="#393939"
+        android:textSize="20sp"
+        android:textStyle="italic">
+
+    </TextView>
+
+    <android.widget.Button
+        android:id="@+id/allow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ques"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+        android:background="@drawable/blue_rounded_btn"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="ALLOW ACCESS"
+        android:textColor="@color/black">
+
+    </android.widget.Button>
+
+    <android.widget.Button
+        android:id="@+id/noaccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/allow"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/blue_rounded_btn"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="REMOVE ACCESS"
+        android:textColor="@color/black">
+
+    </android.widget.Button>
+
+</RelativeLayout>

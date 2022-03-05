@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentCategory">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/gradient_toolbar"
+        android:id="@+id/ToolBarofFaculty">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textStyle="italic"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:id="@+id/AppText">
+
+            </TextView>
+
+            <ImageButton
+                android:id="@+id/backbuttonCategory"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:tint="@color/white">
+
+            </ImageButton>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The student claimed the following:"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@+id/ToolBarofFaculty"
+        android:paddingTop="30dp"
+        android:layout_marginLeft="30dp">
+
+    </TextView>
+
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/anxious1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/grief1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/anxious1"
+            android:paddingTop="10dp"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/trauma1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/grief1"
+            android:paddingTop="10dp"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/report1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trauma1"
+            android:paddingTop="10dp"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/challenge1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/report1"
+            android:paddingTop="10dp"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/interfere1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/challenge1"
+            android:paddingTop="10dp"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/depress1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/interfere1"
+            android:paddingTop="10dp"
+            android:text="Text goes here"
+            android:textSize="20sp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

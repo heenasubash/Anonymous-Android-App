@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <TextView
+        android:id="@+id/accessText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="50dp"
+        android:paddingTop="110dp"
+        android:paddingRight="30dp"
+        android:text="Click this button to check if you have faculty access"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        android:textStyle="italic">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/faculty_ac"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/accessText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/faculty_access">
+
+    </ImageView>
+
+    <android.widget.Button
+        android:id="@+id/accessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/faculty_ac"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="#25d366"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="CHECK"
+        android:textColor="@color/white"
+        android:textSize="15sp">
+
+    </android.widget.Button>
+
+
+
+
+
+</RelativeLayout>

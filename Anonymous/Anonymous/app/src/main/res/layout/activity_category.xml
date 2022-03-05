@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CategoryActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/gradient_toolbar"
+        android:id="@+id/ToolBarofFaculty">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:layout_centerHorizontal="true"
+                android:textStyle="italic"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:id="@+id/AppText">
+
+            </TextView>
+
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/rel">
+
+        <CheckBox
+            android:id="@+id/anxious"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I feel anxious or overwhelmed"
+            android:textSize="16dp">
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I am grieving"
+            android:layout_below="@+id/anxious"
+            android:id="@+id/grief"
+            android:textSize="16dp">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I have experienced trauma"
+            android:layout_below="@+id/grief"
+            android:id="@+id/trauma"
+            android:textSize="16dp">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I want to report an incident"
+            android:layout_below="@+id/trauma"
+            android:id="@+id/report"
+            android:textSize="16dp">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I need to talk through a specific challenge"
+            android:layout_below="@+id/report"
+            android:id="@+id/challenge"
+            android:textSize="16dp">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My troubles are interfering with my academic perfomance"
+            android:layout_below="@+id/challenge"
+            android:id="@+id/interfere"
+            android:textSize="16dp">
+
+        </CheckBox>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I feel depressed"
+            android:layout_below="@+id/interfere"
+            android:id="@+id/depress"
+            android:textSize="16dp">
+
+        </CheckBox>
+    </RelativeLayout>
+
+    <android.widget.Button
+        android:id="@+id/catButton"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/rel"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/normal_button"
+        android:text="SUBMIT"
+        android:textSize="18sp">
+
+    </android.widget.Button>
+
+</RelativeLayout>

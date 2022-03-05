@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Register">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="-50dp"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/gradient_blue"
+        >
+
+    </ImageView>
+    <TextView
+        android:id="@+id/RegistrationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:paddingTop="30dp"
+        android:text="Registration Form"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:textStyle="italic">
+
+    </TextView>
+
+    <RelativeLayout
+        android:id="@+id/icon_container"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_above="@+id/radiobutton"
+        android:layout_marginBottom="30dp">
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/student_icon">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/logo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/faculty">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/logo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/non_faculty">
+
+        </ImageView>
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/radiobutton"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/StudentRadio"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:text="Student"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:textStyle="italic" />
+
+        <RadioButton
+            android:id="@+id/FacultyRadio"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="Faculty Advisor"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:textStyle="italic" />
+
+        <RadioButton
+            android:id="@+id/NonFacultyRadio"
+            android:layout_width="125dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:text="Non-Faculty Advisor"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/GetName"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/radiobutton"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="62dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Enter your Name"
+        android:inputType="textCapWords"
+        android:textColor="@color/black"
+        android:textAlignment="center">
+
+    </EditText>
+
+    <android.widget.Button
+        android:id="@+id/Register"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GetName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/normal_button"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="SUBMIT"
+        android:textColor="@color/white"
+        android:textSize="15sp">
+
+    </android.widget.Button>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Register"
+        android:layout_marginTop="40dp"
+        android:id="@+id/progressbarRegister"
+        android:visibility="invisible">
+
+    </ProgressBar>
+
+</RelativeLayout>

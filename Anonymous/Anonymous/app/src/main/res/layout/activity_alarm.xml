@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AlarmActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/gradient_toolbar"
+        android:id="@+id/ToolBar">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/AppText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Schedule A Meeting"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="italic">
+
+            </TextView>
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TimePicker
+        android:id="@+id/timepicker"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ToolBar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="50dp"
+        android:headerBackground="#3CB6ED"
+        android:numbersSelectorColor="#3CB6ED"
+        android:paddingTop="-30dp"
+        android:scaleX="0.5"
+        android:scaleY="0.5">
+
+    </TimePicker>
+
+    <TimePicker
+        android:id="@+id/timepicker1"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ToolBar"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:headerBackground="#3CB6ED"
+        android:numbersSelectorColor="#3CB6ED"
+        android:scaleX="0.5"
+        android:scaleY="0.5">
+
+    </TimePicker>
+
+    <DatePicker
+        android:id="@+id/datepicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/timepicker"
+        android:layout_marginTop="-180dp"
+        android:datePickerMode="calendar"
+        android:headerBackground="#3CB6ED"
+        android:scaleX="0.5"
+        android:scaleY="0.5">
+
+    </DatePicker>
+
+    <EditText
+        android:id="@+id/titleedit"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ToolBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Title"
+        android:inputType="textCapWords">
+
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/desText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleedit"
+        android:layout_centerHorizontal="true"
+        android:hint="Description"
+        android:inputType="textCapWords">
+
+    </EditText>
+
+    <android.widget.Button
+        android:id="@+id/setSchedule"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/datepicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-80dp"
+        android:textColor="@color/white"
+        android:background="@drawable/normal_button"
+        android:text="Submit">
+
+    </android.widget.Button>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/desText"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="80dp"
+        android:text="Stop Time"
+        android:textColor="#201D1D"
+        android:textSize="18dp"
+        android:textStyle="italic">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/desText"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="80dp"
+        android:text="Start Time"
+        android:textColor="#201D1D"
+        android:textSize="18dp"
+        android:textStyle="italic"></TextView>
+</RelativeLayout>
+
+
+
+
